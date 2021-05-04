@@ -240,9 +240,12 @@ main {
       .big-btn {
         width: 65px;
         height: 65px;
+        position: relative;
         img {
           width: 45px;
           height: 45px;
+          position: absolute;
+          left: 13px;
         }
       }
     }

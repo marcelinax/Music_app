@@ -38,19 +38,19 @@ class Song {
         </div>
         </div>
         <div class="song-box-bottom-menu">
-        <button class='rounded-btn' id="next-song">
+        <button class='rounded-btn' id="repeat-song">
         <img src='../assets/bx-repeat.svg' >
         </button>
         <button class='rounded-btn' id="previous-song">
         <img src='../assets/bx-skip-previous.svg' >
         </button>
-        <button class='rounded-btn big-btn' id="previous-song">
+        <button class='rounded-btn big-btn' id="play-song">
         <img src='../assets/bx-play.svg' >
         </button>
         <button class='rounded-btn' id="next-song">
         <img src='../assets/bx-skip-next.svg' >
         </button>
-        <button class='rounded-btn' id="previous-song">
+        <button class='rounded-btn' id="random-song">
         <img src='../assets/bx-shuffle.svg' >
         </button>
         
