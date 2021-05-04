@@ -1,1 +1,380 @@
-/* No CSS *//*# sourceMappingURL=global.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+main .open-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e7f0f7;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  -webkit-box-shadow: 7px 7px 17px #e7f0f7, -7px -7px 17px #ffffff;
+          box-shadow: 7px 7px 17px #e7f0f7, -7px -7px 17px #ffffff;
+}
+
+main .open-form img {
+  width: 30px;
+  height: 30px;
+}
+
+main .open-form:hover {
+  -webkit-transform: translate(10px, 10px);
+          transform: translate(10px, 10px);
+  -webkit-box-shadow: inset -7px -7px 17px #e7f0f7, inset 7px 7px 17px #ffffff;
+          box-shadow: inset -7px -7px 17px #e7f0f7, inset 7px 7px 17px #ffffff;
+}
+
+main .open-form--disactive {
+  display: none;
+}
+
+main .form-box {
+  display: none;
+}
+
+main .form-box--active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100vh - 4rem);
+  width: 100%;
+  background-color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .form-box .title-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 4rem;
+}
+
+main .form-box .title-box h4 {
+  color: #39515a;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
+main .form-box .title-box img {
+  width: 50px;
+  height: 50px;
+}
+
+main .form-box .form-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 500px;
+  height: 500px;
+  border: 5px solid #e7f0f7;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+main .form-box .form-inputs .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+}
+
+main .form-box .form-inputs input {
+  border-radius: 4px;
+  height: 35px;
+  background: #e7f0f7;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: inset 5px 5px 10px #e7f0f7, inset -5px -5px 10px #ffffff;
+          box-shadow: inset 5px 5px 10px #e7f0f7, inset -5px -5px 10px #ffffff;
+  padding-left: 0.3rem;
+  color: #abb6bc;
+}
+
+main .form-box .form-inputs label {
+  color: #abb6bc;
+  font-size: 13px;
+}
+
+main .form-box .form-inputs button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background: #e7f0f7;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 5px 5px 10px #e7f0f7, inset -5px -5px 10px #ffffff;
+          box-shadow: inset 5px 5px 10px #e7f0f7, inset -5px -5px 10px #ffffff;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+main .form-box .form-inputs button img {
+  width: 30px;
+  height: 30px;
+}
+
+main .form-box .form-inputs button:hover {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+main .song-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #e7f0f7;
+  border-radius: 20px;
+  width: 300px;
+  padding: 2rem;
+  height: 550px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+main .song-box-top-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .song-box-top-menu .small-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 10px;
+  -webkit-box-shadow: 7px 7px 14px #9d9d9d, -7px -7px 14px #ffffff;
+          box-shadow: 7px 7px 14px #9d9d9d, -7px -7px 14px #ffffff;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+main .song-box-top-menu .small-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+main .song-box-top-menu .small-btn:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .song-box-about-song {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .song-box-about-song .song-avatar-box {
+  width: 200px;
+  height: 200px;
+  padding: 1rem;
+  background-color: rgba(57, 81, 90, 0.2);
+  border-radius: 20px;
+}
+
+main .song-box-about-song .song-avatar-box .song-avatar {
+  width: 200px;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+}
+
+main .song-box-about-song .song-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .song-box-about-song .song-details .title {
+  font-weight: 600;
+  margin-top: 0.8rem;
+  font-size: 1.2rem;
+  color: #39515a;
+}
+
+main .song-box-about-song .song-details .author {
+  font-size: 0.8rem;
+  color: #abb6bc;
+  font-weight: 500;
+}
+
+main .song-box-bottom-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .song-box-bottom-menu .rounded-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: transparent;
+  -webkit-box-shadow: 15px 15px 30px #9d9d9d, -15px -15px 30px #ffffff;
+          box-shadow: 15px 15px 30px #9d9d9d, -15px -15px 30px #ffffff;
+  margin-right: 0.5rem;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+}
+
+main .song-box-bottom-menu .rounded-btn img {
+  width: 25px;
+  height: 25px;
+}
+
+main .song-box-bottom-menu .rounded-btn:hover {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .song-box-bottom-menu .big-btn {
+  width: 65px;
+  height: 65px;
+}
+
+main .song-box-bottom-menu .big-btn img {
+  width: 45px;
+  height: 45px;
+}
+/*# sourceMappingURL=global.css.map */

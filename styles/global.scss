@@ -1,1 +1,213 @@
 @import "mixins";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  @include flex-center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  .open-form {
+    @include flex-center;
+    @include default-btn;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #e7f0f7;
+    transition: $default-transition;
+    box-shadow: 7px 7px 17px #e7f0f7, -7px -7px 17px #ffffff;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    &:hover {
+      transform: translate(10px, 10px);
+      box-shadow: inset -7px -7px 17px #e7f0f7, inset 7px 7px 17px #ffffff;
+    }
+    &--disactive {
+      display: none;
+    }
+  }
+  .form-box {
+    display: none;
+    &--active {
+      @include flex-center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: calc(100vh - 4rem);
+      width: 100%;
+      background-color: white;
+      flex-direction: column;
+    }
+    .title-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 4rem;
+      h4 {
+        color: #39515a;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-right: 2rem;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .form-inputs {
+      @include flex-space-between;
+      align-items: center;
+      width: 500px;
+      height: 500px;
+      border: 5px solid #e7f0f7;
+      flex-direction: column;
+      padding: 2rem;
+      border-radius: 10px;
+      .row {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+      }
+      input {
+        border-radius: 4px;
+        height: 35px;
+        background: #e7f0f7;
+        border: none;
+        outline: none;
+        box-shadow: inset 5px 5px 10px #e7f0f7, inset -5px -5px 10px #ffffff;
+        padding-left: 0.3rem;
+        color: #abb6bc;
+      }
+      label {
+        color: #abb6bc;
+        font-size: 13px;
+      }
+      button {
+        @include flex-center;
+        @include default-btn;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        background: #e7f0f7;
+        border-radius: 4px;
+        box-shadow: inset 5px 5px 10px #e7f0f7, inset -5px -5px 10px #ffffff;
+        transition: $default-transition;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+        &:hover {
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+
+  .song-box {
+    @include flex-space-between;
+    flex-direction: column;
+    background-color: #e7f0f7;
+    border-radius: 20px;
+    width: 300px;
+    padding: 2rem;
+    height: 550px;
+    box-shadow: 0 0 15px rgba(#000, 0.2);
+    &-top-menu {
+      display: flex;
+      justify-content: space-between;
+      .small-btn {
+        @include flex-center;
+        @include default-btn;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border-radius: 10px;
+        box-shadow: 7px 7px 14px #9d9d9d, -7px -7px 14px #ffffff;
+        transition: $default-transition;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+        &:hover {
+          transform: scale(0.9);
+        }
+      }
+    }
+    &-about-song {
+      @include flex-center;
+      width: 100%;
+      flex-direction: column;
+      .song-avatar-box {
+        width: 200px;
+        height: 200px;
+        padding: 1rem;
+        background-color: rgba(#39515a, 0.2);
+        border-radius: 20px;
+        .song-avatar {
+          width: 200px;
+          height: 200px;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-radius: 20px;
+        }
+      }
+
+      .song-details {
+        @include flex-center;
+        flex-direction: column;
+        .title {
+          font-weight: 600;
+          margin-top: 0.8rem;
+          font-size: 1.2rem;
+          color: #39515a;
+        }
+        .author {
+          font-size: 0.8rem;
+          color: #abb6bc;
+          font-weight: 500;
+        }
+      }
+    }
+    &-bottom-menu {
+      @include flex-center;
+      .rounded-btn {
+        @include flex-center;
+        @include default-btn;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: transparent;
+        box-shadow: 15px 15px 30px #9d9d9d, -15px -15px 30px #ffffff;
+        margin-right: 0.5rem;
+        transition: $default-transition;
+        img {
+          width: 25px;
+          height: 25px;
+        }
+        &:hover {
+          transform: scale(0.9);
+        }
+      }
+      .big-btn {
+        width: 65px;
+        height: 65px;
+        img {
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }
+  }
+}

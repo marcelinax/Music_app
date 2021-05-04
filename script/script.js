@@ -12,12 +12,21 @@ class Song {
   }
   renderSong() {
     const songBox = document.querySelector(".song-box");
-
+    // songBox.setAttribute("id", this.index);
     let content = `
-      <div class="song-box-top-menu"></div>
+      <div class="song-box-top-menu">
+      <button class='small-btn' id='add-to-likes'>
+      <img src='../assets/bxs-heart.svg' >
+      </button>
+      <h5>Playing now </h5>
+      <button class='small-btn'>
+      <img src='../assets/bxs-playlist.svg' >
+      </button>
+      </div>
         <div class="song-box-about-song">
-          <div class="song-avatar">
-            <img src=${this.photoUrl} alt="" />
+       <div class="song-avatar-box">
+          <div class="song-avatar" style="background-image: url('${this.photoUrl}');">
+          </div>
           </div>
           <div class="song-details">
             <p class="title">${this.title}</p>
@@ -26,8 +35,22 @@ class Song {
           </div>
         </div>
         <div class="song-box-bottom-menu">
-        <button id="next-song">NEXT</button>
-        <button id="previous-song">PREVIOUS</button>
+        <button class='rounded-btn' id="next-song">
+        <img src='../assets/bx-repeat.svg' >
+        </button>
+        <button class='rounded-btn' id="previous-song">
+        <img src='../assets/bx-skip-previous.svg' >
+        </button>
+        <button class='rounded-btn big-btn' id="previous-song">
+        <img src='../assets/bx-play.svg' >
+        </button>
+        <button class='rounded-btn' id="next-song">
+        <img src='../assets/bx-skip-next.svg' >
+        </button>
+        <button class='rounded-btn' id="previous-song">
+        <img src='../assets/bx-shuffle.svg' >
+        </button>
+        
         </div>
       `;
     songBox.innerHTML = content;
@@ -37,9 +60,11 @@ class Song {
 
 class Songs {
   songs = [];
+  cuurentSongIndex = 0;
   constructor() {
     this.initCreateNewSong();
     this.readSongsFromLocalStorage();
+    this.initChangeSong();
   }
   saveSongInLocalStorage() {
     localStorage.setItem("songs", JSON.stringify(this.songs));
@@ -53,10 +78,10 @@ class Songs {
         const song = new Song(
           songShape.title,
           songShape.author,
-
           songShape.length,
           songShape.album,
-          songShape.photoUrl
+          songShape.photoUrl,
+          songShape.isLiked
         );
         this.songs.push(song);
       });
@@ -68,6 +93,8 @@ class Songs {
     const lengthSong = document.getElementById("song-length").value;
     const albumSong = document.getElementById("song-album").value;
     const photoUrlSong = document.getElementById("song-photo-url").value;
+
+    const isLiked = false;
 
     if (!titleSong) {
       alert("Enter title!");
@@ -94,7 +121,8 @@ class Songs {
       authorSong,
       lengthSong,
       albumSong,
-      photoUrlSong
+      photoUrlSong,
+      isLiked
     );
     this.songs.push(song);
     this.saveSongInLocalStorage();
@@ -110,6 +138,35 @@ class Songs {
       this.createNewSong();
     });
   }
+
+  playNextSong() {}
+  playPreviousSong() {}
+  initChangeSong() {
+    document.getElementById("next-song").addEventListener("click", () => {
+      this.playNextSong();
+    });
+    document.getElementById("previous-song").addEventListener("click", () => {
+      this.playPreviousSong();
+    });
+  }
+}
+
+class UI {
+  constructor() {
+    this.initOpenAddNewSongForm();
+  }
+  openAddNewSongForm() {
+    document.querySelector(".form-box").classList.toggle("form-box--active");
+    document
+      .querySelector(".open-form")
+      .classList.toggle("open-form--disactive");
+  }
+  initOpenAddNewSongForm() {
+    document.getElementById("open-form-btn").addEventListener("click", () => {
+      this.openAddNewSongForm();
+    });
+  }
 }
 
 const songs = new Songs();
+const ui = new UI();

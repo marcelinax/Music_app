@@ -10,15 +10,42 @@
   </head>
   <body>
     <main>
+      <button class="open-form" id="open-form-btn">
+        <img src="assets/bx-plus.svg" alt="" />
+      </button>
       <div class="form-box">
-        <input type="text" id="song-title" />
-        <input type="text" id="song-author" />
-        <input type="text" id="song-length" />
-        <input type="text" id="song-album" />
-        <input type="text" id="song-photo-url" />
-        <button id="add-song">ADD</button>
+        <div class="title-box">
+          <h4>Add new song</h4>
+          <img src="assets/bxs-music.svg" alt="" />
+        </div>
+        <div class="form-inputs">
+          <div class="row">
+            <label for="">Title</label>
+            <input type="text" id="song-title" />
+          </div>
+          <div class="row">
+            <label for="">Author</label>
+            <input type="text" id="song-author" />
+          </div>
+          <div class="row">
+            <label for="">Track length</label>
+            <input type="text" id="song-length" />
+          </div>
+          <div class="row">
+            <label for="">Album name</label>
+            <input type="text" id="song-album" />
+          </div>
+          <div class="row">
+            <label for="">Song photo url</label>
+            <input type="text" id="song-photo-url" />
+          </div>
+          <button id="add-song">
+            <img src="assets/bx-plus.svg" alt="" />
+          </button>
+        </div>
       </div>
       <div class="song-box"> </div>
     </main>
+    <div style="background-image: url()"></div>
   </body>
 </html>
