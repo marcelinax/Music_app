@@ -184,6 +184,7 @@ class UI {
   constructor() {
     this.initOpenAddNewSongForm();
     this.initShowSongsPlaylist();
+    this.initCloseAddNewSongForm();
   }
   openAddNewSongForm() {
     document.querySelector(".form-box").classList.toggle("form-box--active");
@@ -194,6 +195,14 @@ class UI {
   initOpenAddNewSongForm() {
     document.getElementById("open-form-btn").addEventListener("click", () => {
       this.openAddNewSongForm();
+    });
+  }
+  closeAddNewSongForm() {
+    document.querySelector(".form-box").classList.toggle("form-box--active");
+  }
+  initCloseAddNewSongForm() {
+    document.getElementById("close-form-btn").addEventListener("click", () => {
+      this.closeAddNewSongForm();
     });
   }
   showSongsPlaylist() {
