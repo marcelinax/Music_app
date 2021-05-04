@@ -24,15 +24,18 @@ class Song {
       </button>
       </div>
         <div class="song-box-about-song">
-       <div class="song-avatar-box">
-          <div class="song-avatar" style="background-image: url('${this.photoUrl}');">
-          </div>
-          </div>
-          <div class="song-details">
+        <div class="song-avatar-box">
+          <div class="song-avatar" style="background-image: url('${this.photoUrl}');"></div>
+        </div>
+        <div class="song-details">
             <p class="title">${this.title}</p>
             <p class="author">${this.author}</p>
-            <p class="length">${this.length}</p>
-          </div>
+           
+        </div>
+        <div class='track-length-bar'>
+        <span></span>
+         <p class="length">${this.length}</p>
+        </div>
         </div>
         <div class="song-box-bottom-menu">
         <button class='rounded-btn' id="next-song">
