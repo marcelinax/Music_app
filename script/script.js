@@ -3,8 +3,8 @@
 class Song {
   constructor(title, length, author, album, photoUrl, isLiked = false) {
     this.title = title;
-    this.length = length;
     this.author = author;
+    this.length = length;
     this.album = album;
     this.photoUrl = photoUrl;
     this.isLiked = isLiked;
@@ -14,12 +14,13 @@ class Song {
     const songBox = document.querySelector(".song-box");
     // songBox.setAttribute("id", this.index);
     let content = `
+    
       <div class="song-box-top-menu">
       <button class='small-btn' id='add-to-likes'>
       <img src='../assets/bxs-heart.svg' >
       </button>
       <h5>Playing now </h5>
-      <button class='small-btn'>
+      <button class='small-btn' id='songs-playlist'>
       <img src='../assets/bxs-playlist.svg' >
       </button>
       </div>
@@ -53,8 +54,8 @@ class Song {
         <button class='rounded-btn' id="random-song">
         <img src='../assets/bx-shuffle.svg' >
         </button>
-        
         </div>
+         <div class="songs-playlist"></div>
       `;
     songBox.innerHTML = content;
     document.querySelector("main").appendChild(songBox);
@@ -63,11 +64,12 @@ class Song {
 
 class Songs {
   songs = [];
-  cuurentSongIndex = 0;
+  currentSongIndex = 0;
   constructor() {
     this.initCreateNewSong();
     this.readSongsFromLocalStorage();
     this.initChangeSong();
+    this.renderSongsOnPlaylist();
   }
   saveSongInLocalStorage() {
     localStorage.setItem("songs", JSON.stringify(this.songs));
@@ -142,7 +144,10 @@ class Songs {
     });
   }
 
-  playNextSong() {}
+  playNextSong() {
+    console.log(this.songs);
+  }
+
   playPreviousSong() {}
   initChangeSong() {
     document.getElementById("next-song").addEventListener("click", () => {
@@ -152,11 +157,33 @@ class Songs {
       this.playPreviousSong();
     });
   }
+  renderSongsOnPlaylist() {
+    const songs = JSON.parse(localStorage.getItem("songs"));
+    songs.forEach((song, index) => {
+      const songItem = document.createElement("div");
+      songItem.classList.add("song-item");
+      let content = `
+      <div class="song-number">
+      <p class="number">${index + 1}</p>
+    </div>
+    <div class="song-info">
+      <p class="song-title">${song.title}</p>
+      <p class="song-length">${song.length}</p>
+    </div>
+    <button class="liked-btn">
+      <img src="assets/bxs-heart.svg" alt="" />
+    </button>
+    `;
+      songItem.innerHTML = content;
+      document.querySelector(".songs-playlist").appendChild(songItem);
+    });
+  }
 }
 
 class UI {
   constructor() {
     this.initOpenAddNewSongForm();
+    this.initShowSongsPlaylist();
   }
   openAddNewSongForm() {
     document.querySelector(".form-box").classList.toggle("form-box--active");
@@ -167,6 +194,16 @@ class UI {
   initOpenAddNewSongForm() {
     document.getElementById("open-form-btn").addEventListener("click", () => {
       this.openAddNewSongForm();
+    });
+  }
+  showSongsPlaylist() {
+    document
+      .querySelector(".songs-playlist")
+      .classList.toggle("songs-playlist--active");
+  }
+  initShowSongsPlaylist() {
+    document.getElementById("songs-playlist").addEventListener("click", () => {
+      this.showSongsPlaylist();
     });
   }
 }

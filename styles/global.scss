@@ -116,6 +116,7 @@ main {
 
   .song-box {
     @include flex-space-between;
+    align-items: center;
     flex-direction: column;
     background-color: #e7f0f7;
     border-radius: 20px;
@@ -123,8 +124,10 @@ main {
     padding: 2rem;
     height: 550px;
     box-shadow: 0 0 15px rgba(#000, 0.2);
+    position: relative;
     &-top-menu {
       display: flex;
+      width: 100%;
       justify-content: space-between;
       .small-btn {
         @include flex-center;
@@ -246,6 +249,76 @@ main {
           height: 45px;
           position: absolute;
           left: 13px;
+        }
+      }
+    }
+    .songs-playlist {
+      display: none;
+
+      &--active {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        background-color: #e7f0f7;
+        height: 65%;
+        width: 100%;
+        z-index: 1000000;
+        bottom: 0;
+        box-shadow: 0 0 5px rgba(#000, 0.1);
+        border-radius: 20px;
+        border-top: 1px solid rgba(#abb6bc, 0.6);
+        overflow-y: auto;
+      }
+      .song-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid rgba(#abb6bc, 0.6);
+        padding: 1rem;
+        position: relative;
+        .song-number {
+          @include flex-center;
+          width: 30px;
+          height: 30px;
+          border-radius: 10px;
+          background: #e7f0f5;
+          box-shadow: 5px 5px 14px #c4ccd0, -5px -5px 14px #ffffff;
+          border: 1px solid rgba(#abb6bc, 0.6);
+          margin-right: 1rem;
+          .number {
+            color: #abb6bc;
+            font-size: 13px;
+          }
+        }
+        .song-info {
+          @include flex-space-between;
+          flex-direction: column;
+          .song-title {
+            color: #39515a;
+            font-size: 14px;
+            font-weight: 600;
+          }
+          .song-length {
+            font-size: 10px;
+            color: #abb6bc;
+            font-weight: 400;
+          }
+        }
+        .liked-btn {
+          @include default-btn;
+          @include flex-center;
+          position: absolute;
+          top: 13px;
+          right: 20px;
+          border-radius: 50%;
+          background: #e7f0f5;
+          box-shadow: inset 5px 5px 10px #c4ccd0, inset -5px -5px 10px #ffffff;
+          width: 40px;
+          height: 40px;
+          img {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }
