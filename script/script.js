@@ -1,18 +1,17 @@
 "use strict";
 
 class Song {
-  constructor(title, length, author, album, photoUrl, isLiked = false) {
+  constructor(songs, title, length, author, album, photoUrl, isLiked = false) {
+    this.songs = songs;
     this.title = title;
     this.author = author;
     this.length = length;
     this.album = album;
     this.photoUrl = photoUrl;
     this.isLiked = isLiked;
-    this.renderSong();
   }
   renderSong() {
     const songBox = document.querySelector(".song-box");
-    // songBox.setAttribute("id", this.index);
     let content = `
     
       <div class="song-box-top-menu">
@@ -59,6 +58,7 @@ class Song {
       `;
     songBox.innerHTML = content;
     document.querySelector("main").appendChild(songBox);
+    this.songs.initChangeSong();
   }
 }
 
@@ -68,9 +68,10 @@ class Songs {
   constructor() {
     this.initCreateNewSong();
     this.readSongsFromLocalStorage();
-    this.initChangeSong();
+
     this.renderSongsOnPlaylist();
   }
+
   saveSongInLocalStorage() {
     localStorage.setItem("songs", JSON.stringify(this.songs));
   }
@@ -81,6 +82,7 @@ class Songs {
       const songsShapes = JSON.parse(localStorage.getItem("songs"));
       songsShapes.forEach((songShape) => {
         const song = new Song(
+          this,
           songShape.title,
           songShape.author,
           songShape.length,
@@ -91,6 +93,7 @@ class Songs {
         this.songs.push(song);
       });
     }
+    if (this.songs.length > 0) this.songs[0].renderSong();
   }
   createNewSong() {
     const titleSong = document.getElementById("song-title").value;
@@ -145,10 +148,24 @@ class Songs {
   }
 
   playNextSong() {
-    console.log(this.songs);
+    if (this.currentSongIndex > this.songs.length - 1) {
+      this.currentSongIndex = 0;
+      this.songs[this.currentSongIndex].renderSong();
+    } else {
+      this.currentSongIndex++;
+      this.songs[this.currentSongIndex].renderSong();
+    }
   }
 
-  playPreviousSong() {}
+  playPreviousSong() {
+    if (this.currentSongIndex < 0) {
+      this.currentSongIndex = this.songs.length - 1;
+      this.songs[this.currentSongIndex].renderSong();
+    } else {
+      this.currentSongIndex--;
+      this.songs[this.currentSongIndex].renderSong();
+    }
+  }
   initChangeSong() {
     document.getElementById("next-song").addEventListener("click", () => {
       this.playNextSong();
