@@ -59,6 +59,8 @@ class Song {
     songBox.innerHTML = content;
     document.querySelector("main").appendChild(songBox);
     this.songs.initChangeSong();
+    this.songs.renderSongsOnPlaylist();
+    this.songs.initShowSongsPlaylist();
   }
 }
 
@@ -68,8 +70,6 @@ class Songs {
   constructor() {
     this.initCreateNewSong();
     this.readSongsFromLocalStorage();
-
-    this.renderSongsOnPlaylist();
   }
 
   saveSongInLocalStorage() {
@@ -148,7 +148,7 @@ class Songs {
   }
 
   playNextSong() {
-    if (this.currentSongIndex > this.songs.length - 1) {
+    if (this.currentSongIndex > this.songs.length - 2) {
       this.currentSongIndex = 0;
       this.songs[this.currentSongIndex].renderSong();
     } else {
@@ -158,7 +158,7 @@ class Songs {
   }
 
   playPreviousSong() {
-    if (this.currentSongIndex < 0) {
+    if (this.currentSongIndex <= 0) {
       this.currentSongIndex = this.songs.length - 1;
       this.songs[this.currentSongIndex].renderSong();
     } else {
@@ -195,12 +195,22 @@ class Songs {
       document.querySelector(".songs-playlist").appendChild(songItem);
     });
   }
+  showSongsPlaylist() {
+    document
+      .querySelector(".songs-playlist")
+      .classList.toggle("songs-playlist--active");
+  }
+  initShowSongsPlaylist() {
+    document.getElementById("songs-playlist").addEventListener("click", () => {
+      this.showSongsPlaylist();
+    });
+  }
 }
 
 class UI {
   constructor() {
     this.initOpenAddNewSongForm();
-    this.initShowSongsPlaylist();
+
     this.initCloseAddNewSongForm();
   }
   openAddNewSongForm() {
@@ -220,16 +230,6 @@ class UI {
   initCloseAddNewSongForm() {
     document.getElementById("close-form-btn").addEventListener("click", () => {
       this.closeAddNewSongForm();
-    });
-  }
-  showSongsPlaylist() {
-    document
-      .querySelector(".songs-playlist")
-      .classList.toggle("songs-playlist--active");
-  }
-  initShowSongsPlaylist() {
-    document.getElementById("songs-playlist").addEventListener("click", () => {
-      this.showSongsPlaylist();
     });
   }
 }
